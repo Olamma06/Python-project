@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blogDiv{
+            margin: 10px 5%;
+            border: 1px solid #428bca;
+            border-radius: 10px;
+            padding: 20px;
+            float: left;
+            width:90%;
+        }
+        .blogDiv img{
+            float: right;
+        }
+        textarea{
+            width: 400px;
+            border: 1px solid blue;
+            border-radius: 10px;
+        }
+        .blogDiv button{
+            color: #fff;
+            background-color: #428bca;
+            border: 1px solid #428bca;
+            border-radius: 5px;
+            padding: 10px 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>This is a Template</h1>
+
+    {% for blog in blogs %}
+        <div class="blogDiv">
+            <h1>{{blog.title}}</h1>
+            <p>{{blog.body}}</p>
+            <img src="{% static 'img.jpg' %}" height="200" /><br />
+            <span>Number of comments: {{blog.No_of_comment}}</span><br />
+            <span>Date: {{blog.date}}</span><br />
+            <span>Comment</span><br />
+            <textarea rows="10">
+
+            </textarea>
+            <button>Add comment</button>
+        </div>
+    {% endfor %}
+
+    
+</body>
+</html>
